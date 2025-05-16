@@ -4,18 +4,19 @@ import { UsersService } from "./user.service";
 @Controller('users')
 export class UsersController {
     @Get()
-    getUsers(@Query() query:any){
+    getUsers(@Query('gender') query:string){
         const usersServices = new UsersService();
-        console.log(query);
+        if(query){
+            return usersServices.getUsers().filter(u => u.gender === query);
+        }
         return usersServices.getUsers();
 
     }
 
     @Get(':id')
-    getUserById(@Param('id') param :string){
-        const id = parseInt(param);
+    getUserById(@Param('id') id :string){
         const usersServices = new UsersService();
-        return usersServices.getUserById(id);
+        return usersServices.getUserById(+id);
     }
 
     @Post()
