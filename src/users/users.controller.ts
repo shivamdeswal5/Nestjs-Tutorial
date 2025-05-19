@@ -22,7 +22,7 @@ export class UsersController {
  
     @Post()
     createUsers(){
-        const user = {id:3,name:'Deswal', age: 21, gender:'male',isMarried:false}
+        const user = {id:3,name:'Deswal', age: 22, gender:'male',isMarried:false}
         const usersServices = new UsersService();
         return usersServices.createUsers(user);
     }
