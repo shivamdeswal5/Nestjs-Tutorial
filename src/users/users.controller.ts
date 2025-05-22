@@ -1,11 +1,13 @@
-import { Controller, Get, Param, Post, Query, ParseIntPipe } from "@nestjs/common";
+import { Controller, Get, Param, Post, Query, ParseIntPipe, Inject } from "@nestjs/common";
 import { GetUsersService } from "./getUsers.service";
 import { GetUserByIdService } from "./getUserById.service";
 import { CreateUserService } from "./createUser.service";
 
 @Controller('users')
 export class UsersController {
-    constructor(private getUsersService:GetUsersService, private getUserByIdService:GetUserByIdService, private createUserService: CreateUserService){}
+    constructor(private getUsersService:GetUsersService, private createUserService: CreateUserService, 
+        @Inject(GetUserByIdService) private getUserByIdService : GetUserByIdService){}
+
     @Get()
     getUsers(@Query('gender') query:string){ 
         if(query){
