@@ -6,7 +6,11 @@ import { CreateUserService } from "./createUser.service";
 @Controller('users')
 export class UsersController {
     constructor(private getUsersService:GetUsersService, private createUserService: CreateUserService, 
-     @Inject(GetUserByIdService) private getUserByIdService : GetUserByIdService){}
+     @Inject(GetUserByIdService) private getUserByIdService : GetUserByIdService,
+     @Inject('DATABASE_CONNECTION') private connection){
+        console.log("Dependency Injected..");
+        console.log(connection);
+     }
     
     @Get()
     getUsers(@Query('gender') query:string){ 

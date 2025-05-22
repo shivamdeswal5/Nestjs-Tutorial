@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Scope } from "@nestjs/common";
 import {users} from './users'
 
-@Injectable()
+@Injectable({scope: Scope.DEFAULT})
 export class GetUsersService{
     
     getUsers(){

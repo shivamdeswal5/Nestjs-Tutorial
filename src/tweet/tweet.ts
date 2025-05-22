@@ -1,12 +1,9 @@
-import { Injectable } from "@nestjs/common";
 
-interface TweetInterface{
+export interface TweetInterface{
     id: number;
     name: string;
     message: string;
 }
-
-@Injectable()
 
 export class Tweet{
     private tweets = new Map<number, TweetInterface>();
@@ -20,7 +17,7 @@ export class Tweet{
     }
 
     getTweets(){
-        return this.tweets
+        return this.tweets;
     }
 
     deleteTweet(id:number){
