@@ -16,7 +16,7 @@ export class TweetController {
             name: 'Shivam',
             message: 'Shivam Deswal'
         }
-        this.tweet.addTweet(tweet);
+        this.tweet.addTweet(tweet);  
         console.log(this.tweet.getTweets());
         console.log("Emails are: ",this.email);
         console.log('Result of Factory Function: ',this.eventStote);
