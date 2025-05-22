@@ -6,8 +6,8 @@ import { CreateUserService } from "./createUser.service";
 @Controller('users')
 export class UsersController {
     constructor(private getUsersService:GetUsersService, private createUserService: CreateUserService, 
-        @Inject(GetUserByIdService) private getUserByIdService : GetUserByIdService){}
-
+     @Inject(GetUserByIdService) private getUserByIdService : GetUserByIdService){}
+    
     @Get()
     getUsers(@Query('gender') query:string){ 
         if(query){
